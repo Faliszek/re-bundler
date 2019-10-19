@@ -1,1 +1,1 @@
-ReBundler.Util.foo();
+ReBundler.Main.run();

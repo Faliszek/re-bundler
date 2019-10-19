@@ -13,28 +13,46 @@
   },
   "buildDirs": {
     "test": {
-      "require": ["re-bundler.lib"],
+      "require": [
+        "re-bundler.lib"
+      ],
       "main": "TestReBundler",
       "name": "TestReBundler.exe"
     },
     "library": {
       "name": "re-bundler.lib",
-      "namespace": "ReBundler"
+      "namespace": "ReBundler",
+      "require": [
+        "lwt.unix",
+        "lambdasoup",
+        "tablecloth-native",
+        "yojson"
+      ]
     },
     "executable": {
-      "require": ["re-bundler.lib"],
+      "require": [
+        "re-bundler.lib"
+      ],
       "main": "ReBundlerApp",
       "name": "ReBundlerApp.exe"
     }
   },
   "scripts": {
     "pesy": "bash -c 'env PESY_MODE=update pesy'",
-    "test": "esy x TestReBundler.exe"
+    "test": "esy x TestReBundler.exe",
+    "start": "esy x ReBundlerApp.exe"
   },
   "dependencies": {
-    "@opam/dune": ">=1.6.0",
     "@esy-ocaml/reason": "*",
-    "ocaml": "^4.4.0"
+    "@opam/cohttp-lwt-unix": "2.3.0",
+    "@opam/dune": ">=1.6.0",
+    "@opam/lambdasoup": "0.6.3",
+    "@opam/lwt": "4.1.0",
+    "@opam/lwt_ppx": "1.2.4",
+    "@opam/tablecloth-native": "0.0.6",
+    "@opam/yojson": "1.7.0",
+    "ocaml": "^4.4.0",
+    "tablecloth": "^0.0.7"
   },
   "devDependencies": {
     "ocaml": "4.7.1004",
